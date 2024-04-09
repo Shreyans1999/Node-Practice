@@ -1,14 +1,14 @@
 const dbConnect = require('./mongodb');
 
-const update = async ()=>{
+const update = async () => {
     const data = await dbConnect();
-    const result = await data.update(
-        {name:"shreyans"},
-        {$set:{name:"iphone 15"}
-    });  
+    const result = await data.updateMany(
+        { name: "iphone 15" },
+        { $set: { name: "iphone 20" } }
+    );
     if (result.acknowledged) {
         console.warn("Data is updated");
-    }  
+    }
 }
 
 update();
